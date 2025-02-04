@@ -3,7 +3,7 @@ import enaa from "../media/homePic.jpeg";
 
 const Home = () => {
   return (
-    <section className="text-center p-12">
+    <section id="home" className="text-center p-12">
       <h2 className="text-5xl font-bold">Full-stack Developer</h2>
       <h3 className="text-2xl text-blue-400 mt-2">Wiame Ramzi</h3>
       <img src={enaa} 

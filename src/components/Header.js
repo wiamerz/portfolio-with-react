@@ -1,16 +1,21 @@
 import React from "react";
+import pic from "../media/light.png";
 
 const Header = () => {
   return (
-    <nav className="flex justify-between items-center p-4 bg-gray-800 shadow-lg">
-      <h1 className="text-xl font-bold tracking-wide">PORTFOLIO</h1>
+    <nav className="flex justify-between items-center p-4 bg-blue-gray-900 shadow-lg">
+      <h1 className="text-xl font-bold tracking-wide">Wiame</h1>
       <div className="space-x-6">
+      <a href="#home" className="hover:text-blue-400 transition duration-300">Home</a>
         <a href="#about" className="hover:text-blue-400 transition duration-300">About</a>
         <a href="#projects" className="hover:text-blue-400 transition duration-300">Projects</a>
         <a href="#contact" className="hover:text-blue-400 transition duration-300">Contact</a>
       </div>
-      <button className="bg-blue-500 px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
-        Light mode
+      <button className=" px-4 py-2 rounded-lg  w-20 transition duration-300">
+      <img
+         src={pic} 
+         alt=""
+        />
       </button>
     </nav>
   );
@@ -25,21 +30,7 @@ export default Header;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//bg-blue-500 px-4 py-2  shadow-md hover:bg-blue-600 transition duration-300
 
 
 
