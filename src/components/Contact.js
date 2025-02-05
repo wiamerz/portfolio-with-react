@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 
-const Contact = () => {
+const Contact = ({ isDarkMode }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -73,8 +73,13 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="p-12 bg-blue-gray-900 rounded-lg mx-4">
-      <h2 className="text-4xl font-bold border-b-2 border-blue-400 inline-block pb-2 mb-6">
+    <section
+      id="contact"
+      className={`p-12 rounded-lg mx-4 ${isDarkMode ? 'bg-blue-gray-900' : 'bg-blue-100'}`}
+    >
+      <h2
+        className={`text-4xl font-bold border-b-2 inline-block pb-2 mb-6 ${isDarkMode ? 'text-white' : 'text-black'} border-blue-400`}
+      >
         Contact me
       </h2>
       
@@ -109,9 +114,7 @@ const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Your Name" 
-                className={`w-full p-3 rounded bg-gray-700 text-white shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${
-                  errors.name ? 'border-2 border-red-500' : ''
-                }`}
+                className={`w-full p-3 rounded bg-gray-700 text-white shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${errors.name ? 'border-2 border-red-500' : ''}`}
               />
               {errors.name && (
                 <p className="text-red-500 text-sm mt-1">{errors.name}</p>
@@ -124,9 +127,7 @@ const Contact = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Your Email" 
-                className={`w-full p-3 rounded bg-gray-700 text-white shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${
-                  errors.email ? 'border-2 border-red-500' : ''
-                }`}
+                className={`w-full p-3 rounded bg-gray-700 text-white shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${errors.email ? 'border-2 border-red-500' : ''}`}
               />
               {errors.email && (
                 <p className="text-red-500 text-sm mt-1">{errors.email}</p>
@@ -139,9 +140,7 @@ const Contact = () => {
                 onChange={handleChange}
                 placeholder="Your Message" 
                 rows="4"
-                className={`w-full p-3 rounded bg-gray-700 text-white shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${
-                  errors.message ? 'border-2 border-red-500' : ''
-                }`}
+                className={`w-full p-3 rounded bg-gray-700 text-white shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${errors.message ? 'border-2 border-red-500' : ''}`}
               ></textarea>
               {errors.message && (
                 <p className="text-red-500 text-sm mt-1">{errors.message}</p>
