@@ -1,6 +1,6 @@
 import React from "react";
 import light from "../media/light.png";
-import dark from "../media/dark.png"; // You'll need to add a dark mode icon
+import dark from "../media/dark.png"; 
 
 const Header = ({ isDarkMode, toggleTheme }) => {
   return (

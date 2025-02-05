@@ -1,21 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import startup from "../media/startup.jpg";
 import meteo from "../media/weatherapp.png";
 import portfolio from "../media/portfolio.jpg";
 import { FaGithub } from "react-icons/fa";
+import gsap from 'gsap';
 
 const Projects = ({ isDarkMode }) => {
-  const [isHovered1, setIsHovered1] = useState(false);
-  const [isHovered2, setIsHovered2] = useState(false);
-  const [isHovered3, setIsHovered3] = useState(false);
-  const [hasAnimated1, setHasAnimated1] = useState(false);
-  const [hasAnimated2, setHasAnimated2] = useState(false);
-  const [hasAnimated3, setHasAnimated3] = useState(false);
+  const overlay1Ref = useRef(null);
+  const overlay2Ref = useRef(null);
+  const overlay3Ref = useRef(null);
+
+  const handleMouseEnter = (ref) => {
+    gsap.fromTo(ref.current,
+      { 
+        yPercent: 100,
+        opacity: 0
+      },
+      { 
+        yPercent: 0,
+        opacity: 1,
+        duration: 0.3,
+        ease: "power2.out"
+      }
+    );
+  };
+
+  const handleMouseLeave = (ref) => {
+    gsap.to(ref.current, {
+      yPercent: 100,
+      opacity: 0,
+      duration: 0.3,
+      ease: "power2.in"
+    });
+  };
 
   return (
     <section
       id="projects"
-      className={`p-12 ${isDarkMode ? 'bg-blue-gray-900' : 'bg-blue-100'} rounded-lg mx-4`}
+      className={`p-12 ${isDarkMode ? 'bg-blue-gray-900' : 'bg-blue-100 '} rounded-lg mx-4`}
     >
       <h2
         className={`text-4xl font-bold inline-block pb-2 ${isDarkMode ? 'text-white' : 'text-black'} border-b-2 border-blue-400`}
@@ -28,13 +50,8 @@ const Projects = ({ isDarkMode }) => {
         <div className="relative">
           <div
             className="relative rounded-lg shadow-lg overflow-hidden"
-            onMouseEnter={() => {
-              setIsHovered1(true);
-              setHasAnimated1(true);
-            }}
-            onMouseLeave={() => {
-              setIsHovered1(false);
-            }}
+            onMouseEnter={() => handleMouseEnter(overlay1Ref)}
+            onMouseLeave={() => handleMouseLeave(overlay1Ref)}
           >
             <img
               src={startup}
@@ -43,7 +60,8 @@ const Projects = ({ isDarkMode }) => {
             />
 
             <div
-              className={`absolute inset-0 bg-blue-900/90 rounded-lg p-4 text-white flex flex-col justify-between items-center text-center h-full transition-all duration-300 ease-in-out ${isHovered1 ? 'opacity-100' : hasAnimated1 ? 'opacity-0' : 'opacity-0'}`}
+              ref={overlay1Ref}
+              className="absolute inset-0 bg-blue-900/90 rounded-lg p-4 text-white flex flex-col justify-between items-center text-center h-full"
             >
               <h3 className="text-lg font-bold mt-2">Site Web Startup</h3>
               <p className="text-gray-200 px-4">
@@ -62,13 +80,8 @@ const Projects = ({ isDarkMode }) => {
         <div className="relative">
           <div
             className="relative rounded-lg shadow-lg overflow-hidden"
-            onMouseEnter={() => {
-              setIsHovered2(true);
-              setHasAnimated2(true);
-            }}
-            onMouseLeave={() => {
-              setIsHovered2(false);
-            }}
+            onMouseEnter={() => handleMouseEnter(overlay2Ref)}
+            onMouseLeave={() => handleMouseLeave(overlay2Ref)}
           >
             <img
               src={meteo}
@@ -77,7 +90,8 @@ const Projects = ({ isDarkMode }) => {
             />
 
             <div
-              className={`absolute inset-0 bg-blue-900/90 rounded-lg p-4 text-white flex flex-col justify-between items-center text-center h-full transition-all duration-300 ease-in-out ${isHovered2 ? 'opacity-100' : hasAnimated2 ? 'opacity-0' : 'opacity-0'}`}
+              ref={overlay2Ref}
+              className="absolute inset-0 bg-blue-900/90 rounded-lg p-4 text-white flex flex-col justify-between items-center text-center h-full"
             >
               <h3 className="text-lg font-bold mb-2">Application Météo</h3>
               <p className="text-gray-200 px-4">
@@ -96,13 +110,8 @@ const Projects = ({ isDarkMode }) => {
         <div className="relative">
           <div
             className="relative rounded-lg shadow-lg overflow-hidden"
-            onMouseEnter={() => {
-              setIsHovered3(true);
-              setHasAnimated3(true);
-            }}
-            onMouseLeave={() => {
-              setIsHovered3(false);
-            }}
+            onMouseEnter={() => handleMouseEnter(overlay3Ref)}
+            onMouseLeave={() => handleMouseLeave(overlay3Ref)}
           >
             <img
               src={portfolio}
@@ -111,7 +120,8 @@ const Projects = ({ isDarkMode }) => {
             />
 
             <div
-              className={`absolute inset-0 bg-blue-900/90 rounded-lg p-4 text-white flex flex-col justify-between items-center text-center h-full transition-all duration-300 ease-in-out ${isHovered3 ? 'opacity-100' : hasAnimated3 ? 'opacity-0' : 'opacity-0'}`}
+              ref={overlay3Ref}
+              className="absolute inset-0 bg-blue-900/90 rounded-lg p-4 text-white flex flex-col justify-between items-center text-center h-full"
             >
               <h3 className="text-lg font-bold mt-2">Portfolio Personnel</h3>
               <p className="text-gray-200 px-4">

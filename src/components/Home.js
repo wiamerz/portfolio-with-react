@@ -1,5 +1,9 @@
 import React from "react";
 import enaa from "../media/homePic-removebg-preview (1).png";
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+
 
 const Home = ({ isDarkMode }) => {
   return (
@@ -19,6 +23,8 @@ const Home = ({ isDarkMode }) => {
         alt="Profile" 
       />
     </section>
+
+
   );
 };
 
