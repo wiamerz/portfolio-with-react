@@ -1,52 +1,62 @@
-import React, { useState } from 'react';
+import React from "react";
+import { MdOutlineAlternateEmail } from "react-icons/md";
+import { FaPhoneAlt } from "react-icons/fa";
 
-const HoverCard = () => {
-  const [isHovered, setIsHovered] = useState(false);
-  const [hasAnimated, setHasAnimated] = useState(false);
-
-  const onMouseEnter = () => {
-    setIsHovered(true);
-    setHasAnimated(true);
-  };
-
-  const onMouseLeave = () => {
-    setIsHovered(false);
-    setHasAnimated(false);
-  };
-
+const Contact = () => {
   return (
-    <div className="relative w-64 h-80">
-      {/* Main Card */}
-      <div 
-        className="absolute inset-0 bg-white rounded-lg shadow-lg p-4"
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-      >
-        <div className="w-full h-40 bg-blue-200 rounded-md mb-4"></div>
-        <h3 className="text-lg font-bold mb-2">Main Card Title</h3>
-        <p className="text-gray-600">
-          This is the main card content. Hover over this card to see the overlay animation.
-        </p>
-      </div>
+    <section id="contact" className="p-12 bg-blue-gray-900 rounded-lg mx-4">
+      <h2 className="text-4xl font-bold border-b-2 border-blue-400 inline-block pb-2 mb-6">
+        Contact me
+      </h2>
+      
+      <div className="flex flex-wrap gap-8">
 
-      {/* Overlay Card */}
-      <div 
-        className={`absolute inset-0 bg-black/70 rounded-lg p-4 text-white
-          transform transition-all duration-300 ease-in-out
-          ${isHovered 
-            ? 'opacity-100 translate-y-0' 
-            : hasAnimated 
-              ? 'opacity-0 translate-y-0' 
-              : 'opacity-0 translate-y-full'
-          }`}
-      >
-        <h3 className="text-lg font-bold mb-2">Overlay Content</h3>
-        <p className="text-gray-200">
-          This overlay slides up once and stays until you move your mouse away.
-        </p>
+        {/* Left Column */}
+        <div className="w-full md:w-4/12">
+          <div className="space-y-4">
+            <div className="flex items-center gap-2">
+              <MdOutlineAlternateEmail className="text-blue-400 text-xl" />
+              <p className="text-blue-400 text-lg">wiameramzi@gmail.com</p>
+            </div>
+            <div className="flex items-center gap-2">
+              <FaPhoneAlt className="text-blue-400 text-xl" />
+              <p className="text-blue-400 text-lg">0717859643</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column */}
+        <div className="w-full md:w-7/12">
+          <form className="space-y-4">
+            <div>
+              <input 
+                type="text" 
+                placeholder="Your Name" 
+                className="w-full p-3 rounded bg-gray-700 text-white shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400" 
+              />
+            </div>
+            <div>
+              <input 
+                type="email" 
+                placeholder="Your Email" 
+                className="w-full p-3 rounded bg-gray-700 text-white shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400" 
+              />
+            </div>
+            <div>
+              <textarea 
+                placeholder="Your Message" 
+                rows="4"
+                className="w-full p-3 rounded bg-gray-700 text-white shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              ></textarea>
+            </div>
+            <button className="bg-blue-500 px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
+              Send
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default HoverCard;
+export default Contact;

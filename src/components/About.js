@@ -4,7 +4,7 @@ import pic from "../media/pic.jpeg";
 
 const About = () => {
   return (
-    <section id="about" className="p-12 bg-gray-800 rounded-lg shadow-md mx-4">
+    <section id="about" className="p-12 bg-blue-gray-900 rounded-lg mx-4">
       <h2 className="text-4xl font-bold border-b-2 border-blue-400 inline-block pb-2">About me</h2>
       <div className="flex items-center space-x-6 mt-6">
         <img
